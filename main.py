@@ -1,4 +1,4 @@
-
+#Ejemplo---
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
@@ -97,4 +97,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-    
+#Ejemplo------
