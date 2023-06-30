@@ -1,6 +1,8 @@
 #Ejemplo---
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+from pymongo import MongoClient
+from bson import ObjectId
 
 MongoDB_URL = "mongodb+srv://academia:QA93DNruRfIc7X7K@cluster0.vigzmaf.mongodb.net/?retryWrites=true&w=majority"
 
@@ -14,9 +16,7 @@ try:
 except Exception as e:
     print(e)
 
-from pymongo import MongoClient
 
-MongoDB_URL = "mongodb+srv://academia:QA93DNruRfIc7X7K@cluster0.vigzmaf.mongodb.net/?retryWrites=true&w=majority"
 
 # Conectar a la base de datos
 def connect_to_db():
@@ -62,7 +62,7 @@ def main():
 
     if opc == 1:
         items = [
-            {
+            {   "_id" : str(ObjectId()),
                 "name": input("Escribe el nombre: "),
                 "category": input("Escribe la categoría: "),
                 "quantify": int(input("Escribe la cantidad: ")),
@@ -72,7 +72,7 @@ def main():
         insert_data(items)
 
     elif opc == 2:
-        filter = {"category": input("Ingresa la categoría del producto: ")}
+        filter = {"_id": input("Ingresa la ID: ")}
         get_data(filter)
 
     elif opc == 3:
